@@ -73,6 +73,7 @@ app.post("/", async (req, res) => {
   const result = await saveItem(req.body);
   res.send(result);
 });
+
 const findItem = async () => {
   const Product = mongoose.model("inventory", productSchema);
   let result = await Product.find({ item: "postcard" });
@@ -87,7 +88,7 @@ app.delete("/:item", async (req, res) => {
   res.send(result);
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
 // import os from 'os';
 
